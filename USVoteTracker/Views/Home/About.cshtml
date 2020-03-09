@@ -1,7 +1,28 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model IEnumerable<USVoteTracker.Models.Candidate>
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewBag.Title = "Vote!";
+}
+
+<h1> Presential Candidates </h1>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Party)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Party)</td>
+            <td>
+                <form action="Vote">
+                    <button name="vote" type="submit" value="@item.Name"> Vote!</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+

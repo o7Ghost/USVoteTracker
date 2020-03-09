@@ -37,9 +37,7 @@ namespace USVoteTracker.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View(Candidates);
         }
 
         public ActionResult Contact()
@@ -49,6 +47,19 @@ namespace USVoteTracker.Controllers
             return View();
         }
 
+        public ActionResult Vote(string vote)
+        {
+           foreach (var candidate in Candidates)
+            {
+                if (candidate.Name == vote)
+                {
+                    candidate.Votes++;
+                    break;
+                }
+            }
+            saveCache();
+            return RedirectToAction("Index");
+        }
         public ActionResult AddCandidate(string Name, string Party)
         {
             Candidate C = new Candidate();
