@@ -4,20 +4,22 @@
     ViewBag.Title = "Home Page";
 }
 <h1> Presidential Candidates </h1>
+<p><img src= "Home/showChart" /></p>
+    <table class=" = table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Party)</th>
+            <th>@Html.DisplayNameFor(model => model.Votes)</th>
+        </tr>
 
-        <table class=" = table">
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Name)</th>
-                <th>@Html.DisplayNameFor(model => model.Party)</th>
-                <th>@Html.DisplayNameFor(model => model.Votes)</th>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Party)</td>
+                <td>@Html.DisplayFor(modelItem => item.Votes)</td>
             </tr>
+        }
+    </table>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Party)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Votes)</td>
-                </tr>
-            }
-        </table>
+
