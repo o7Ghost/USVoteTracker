@@ -1,9 +1,20 @@
-﻿@{
+﻿@model IEnumerable<USVoteTracker.Models.Candidate>
+
+@{
+    List<String> xVal = new List<string>();
+    List<int> yVal = new List<int>();
+
+    foreach (var item in Model)
+    {
+        xVal.Add(item.Name);
+        yVal.Add(item.Votes);
+    };
+
     var myChart = new Chart(width: 600, height: 400)
-        .AddTitle("Chart Title")
+        .AddTitle("Number of Votes")
         .AddSeries(
-            name: "Employee",
-            xValue: new[] { "Peter", "Andrew", "Julie", "Mary", "Dave" },
-            yValues: new[] { "2", "6", "4", "5", "3" })
+            name: "Candidates",
+            xValue: xVal,
+            yValues: yVal)
         .Write();
 }

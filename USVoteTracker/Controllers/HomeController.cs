@@ -81,7 +81,7 @@ namespace USVoteTracker.Controllers
 
         public ActionResult showChart()
         {
-            return View();
+            return View(Candidates);
         }
     }
 }
