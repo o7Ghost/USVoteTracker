@@ -9,4 +9,4 @@ How to use the website:
   As a admin you will need to add presidential Candidates through your https://localhost:(depend on your hosting)/Home/AddCandidateView.
   to vote simple click on vote! on the top and after voting it will redirect you to the statistic page.
   
-  ![](Image/VoteTracker.png)
+  ![](Images/VoteTracker.png)
